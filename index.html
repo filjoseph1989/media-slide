@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Media Slider</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">  
+</head>
+
+<body class="flex flex-col items-center justify-center min-h-screen p-4">
+
+  <div id="upload-screen" class="text-center">
+    <h1 class="text-4xl font-bold mb-4">Random Media Slider</h1>
+    <p class="text-lg text-gray-400 mb-8">Select pictures and videos from your computer to start.</p>
+    <label for="file-input" class="file-input-label">
+      Select Files
+    </label>
+    <input type="file" id="file-input" multiple accept="image/*,video/*" class="hidden">
+    <p class="text-sm text-gray-500 mt-4">Note: For security reasons, web pages can't browse folders directly.
+      Please select all the files you want to include.</p>
+  </div>
+
+  <div id="slider-screen" class="hidden w-full flex-col items-center">
+    <div class="slider-container relative flex items-center justify-center rounded-lg shadow-2xl mb-4">
+      <div id="media-viewer" class="w-full h-full flex items-center justify-center">
+        <img id="image-viewer" src="" alt="Media" class="hidden">
+        <video id="video-viewer" src="" class="hidden" controls autoplay muted playsinline></video>
+      </div>
+      <button id="prev-btn" class="control-btn left-4 absolute">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button id="next-btn" class="control-btn right-4" style="margin-right: 10px;">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="flex items-center space-x-4">
+      <button id="randomize-btn" class="btn">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-2" viewBox="0 0 20 20"
+          fill="currentColor">
+          <path fill-rule="evenodd"
+            d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+            clip-rule="evenodd" />
+          <path
+            d="M14.667 15.833A6.002 6.002 0 014.167 5.333L2.929 6.571A1 1 0 011.515 5.157l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L5.833 4.904a4.002 4.002 0 008.26 5.929 1 1 0 111.574 1.202 6.002 6.002 0 01-1.001 3.798zM1 10a1 1 0 011-1h2.586l-1.293-1.293a1 1 0 011.414-1.414l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414L4.586 11H2a1 1 0 01-1-1z" />
+        </svg>
+        Shuffle & Restart
+      </button>
+      <button id="change-files-btn" class="btn">Change Selection</button>
+    </div>
+    <div id="status" class="mt-2 text-gray-400 text-sm"></div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+
+</html>
